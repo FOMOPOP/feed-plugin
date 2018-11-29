@@ -21,6 +21,9 @@ Pages::$methods['feed'] = function($pages, $params = array()) {
     'generator'   => kirby()->option('feed.generator', 'Kirby'),
     'header'      => true,
     'snippet'     => false,
+    'creatorfield'=> false,
+    'enclosurefield' => false,
+    'languagecode'=> site()->language() ? site()->language()->code() : 'en',
   );
 
   // merge them with the user input

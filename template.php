@@ -4,6 +4,7 @@
   <channel>
     <title><?php echo xml($title) ?></title>
     <link><?php echo xml($link) ?></link>
+    <language><?= $languagecode ?></language>
     <generator><?php echo c::get('feed.generator', 'Kirby') ?></generator>
     <lastBuildDate><?php echo date('r', $modified) ?></lastBuildDate>
     <atom:link href="<?php echo xml($url) ?>" rel="self" type="application/rss+xml" />
@@ -18,6 +19,14 @@
       <link><?php echo xml($item->url()) ?></link>
       <guid><?php echo xml($item->url()) ?></guid>
       <pubDate><?php echo $datefield == 'modified' ? $item->modified('r') : $item->date('r', $datefield) ?></pubDate>
+      <?php if (!empty($creatorfield)) : ?>
+      <dc:creator><?= xml($item->{$creatorfield}()) ?></dc:creator>
+      <?php endif ?>
+      <?php if (!empty($enclosurefield) && '' != $item->{$enclosurefield}()) : ?>
+      <?php if ($enclosureFile = $item->{$enclosurefield}()->toFile()) : ?>
+      <enclosure url="<?= xml($enclosureFile->url()) ?>" length="<?= xml($enclosureFile->size()) ?>" type="<?= xml($enclosureFile->mime()) ?>" />
+      <?php endif ?>
+      <?php endif ?>
       <description><![CDATA[<?php echo $item->{$textfield}()->kirbytext() ?>]]></description>
     </item>
     <?php endforeach ?>
