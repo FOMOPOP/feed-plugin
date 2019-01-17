@@ -2,7 +2,7 @@
   "name": "feed",
   "description": "Kirby RSS Feed Plugin",
   "author": "Bastian Allgeier <bastian@getkirby.com>",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "kirby-plugin",
   "license": "MIT"  
 }
