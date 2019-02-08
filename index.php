@@ -17,6 +17,7 @@ Kirby::plugin('the-streamable/feed', [
                 'link'              => url(),
                 'datefield'         => 'date',
                 'textfield'         => 'text',
+                'itemtextoverride'  => null, // function ($item) { return $item->text()->kirbytext(); }
                 'modified'          => time(),
                 'excerpt'           => false,
                 'generator'         => kirby()->option('feed.generator', 'Kirby'),
