@@ -27,7 +27,7 @@ Kirby::plugin('the-streamable/feed', [
                 'snippet'           => false,
                 'creatorfield'      => false,
                 'enclosurefield'    => false,
-                'languagecode'      => site()->language() ? site()->language()->code() : 'en',
+                'languagecode'      => kirby()->language() ? kirby()->language()->code() : 'en',
             ];
             
             // merge them with the user input
