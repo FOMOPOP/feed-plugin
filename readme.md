@@ -15,7 +15,7 @@ You can use this in a template for a dedicated feed page or in a template contro
 ```php
 <?php
 
-echo page('blog')->children()->visible()->flip()->limit(10)->feed(array(
+echo page('blog')->children()->listed()->flip()->limit(10)->feed(array(
   'title'       => 'Latest articles',
   'description' => 'Read the latest news about our company',
   'link'        => 'blog'
