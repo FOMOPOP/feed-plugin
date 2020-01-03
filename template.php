@@ -27,8 +27,12 @@
       <enclosure url="<?= Xml::encode($enclosureFile->url()) ?>" length="<?= Xml::encode($enclosureFile->size()) ?>" type="<?= Xml::encode($enclosureFile->mime()) ?>" />
       <?php endif ?>
       <?php endif ?>
+      <?php if ($itemdescriptionoverride !== false): ?>
       <description><![CDATA[<?php echo ($itemdescriptionoverride ? $itemdescriptionoverride($item) : $item->{$descriptionfield}()->kti()) ?>]]></description>
+      <?php endif ?>
+      <?php if ($itemtextoverride !== false): ?>
       <content><![CDATA[<?php echo ($itemtextoverride ? $itemtextoverride($item) : $item->{$textfield}()->kirbytext()) ?>]]></content>
+      <?php endif ?>
     </item>
     <?php endforeach ?>
 
